@@ -1,38 +1,49 @@
 ﻿namespace Plugin.Toolkit.Fonts.Inter;
 
+/// <summary>
+/// Provides extension methods for adding Inter fonts to an IFontCollection.
+/// </summary>
 public static class FontExtensions
 {
     /// <summary>
-    /// Add font to global. using: FontFamily="Regular" *(Italic, Medium, SemiBold, Bold, etc..)
+    /// Add font to global. 
+    /// <para>
+    /// using: FontFamily="Regular"<br/>(Italic, Medium, SemiBold, Bold, etc..)
+    /// </para>
     /// </summary>
+    /// <param name="fonts">The IFontCollection to add the fonts to.</param>
+    /// <returns>The updated IFontCollection.</returns>
     public static IFontCollection AddInterFonts(this IFontCollection fonts)
     {
-        var thisAssembly = typeof(FontExtensions).Assembly;
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-Regular.ttf", FontAliases.InterRegular);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-Italic.ttf", FontAliases.InterItalic);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-Medium.ttf", FontAliases.InterMedium);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-MediumItalic.ttf", FontAliases.InterMediumItalic);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-SemiBold.ttf", FontAliases.InterSemiBold);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-SemiBoldItalic.ttf", FontAliases.InterSemiBoldItalic);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-Bold.ttf", FontAliases.InterBold);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-BoldItalic.ttf", FontAliases.InterBoldItalic);
+        fonts.AddFont("Inter-Regular.ttf", FontAliases.InterRegular);
+        fonts.AddFont("Inter-Italic.ttf", FontAliases.InterItalic);
+        fonts.AddFont("Inter-Medium.ttf", FontAliases.InterMedium);
+        fonts.AddFont("Inter-MediumItalic.ttf", FontAliases.InterMediumItalic);
+        fonts.AddFont("Inter-SemiBold.ttf", FontAliases.InterSemiBold);
+        fonts.AddFont("Inter-SemiBoldItalic.ttf", FontAliases.InterSemiBoldItalic);
+        fonts.AddFont("Inter-Bold.ttf", FontAliases.InterBold);
+        fonts.AddFont("Inter-BoldItalic.ttf", FontAliases.InterBoldItalic);
         return fonts;
     }
 
     /// <summary>
-    /// Add font to partial. using: FontFamily="InterRegular" *(InterItalic, InterMedium, InterSemiBold, InterBold, etc..)
+    /// Add font to partial. 
+    /// <para>
+    /// using: FontFamily="InterRegular"<br/>(InterItalic, InterMedium, InterSemiBold, InterBold, etc..)
+    /// </para>
     /// </summary>
+    /// <param name="fonts">The IFontCollection to add the fonts to.</param>
+    /// <returns>The updated IFontCollection.</returns>
     public static IFontCollection AddInterFontsPartial(this IFontCollection fonts)
     {
-        var thisAssembly = typeof(FontExtensions).Assembly;
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-Regular.ttf", FontAliases.Name + FontAliases.InterRegular);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-Italic.ttf", FontAliases.Name + FontAliases.InterItalic);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-Medium.ttf", FontAliases.Name + FontAliases.InterMedium);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-MediumItalic.ttf", FontAliases.Name + FontAliases.InterMediumItalic);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-SemiBold.ttf", FontAliases.Name + FontAliases.InterSemiBold);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-SemiBoldItalic.ttf", FontAliases.Name + FontAliases.InterSemiBoldItalic);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-Bold.ttf", FontAliases.Name + FontAliases.InterBold);
-        fonts.AddEmbeddedResourceFont(thisAssembly, "Inter-BoldItalic.ttf", FontAliases.Name + FontAliases.InterBoldItalic);
+        fonts.AddFont("Inter-Regular.ttf", nameof(FontAliases.InterRegular));
+        fonts.AddFont("Inter-Italic.ttf", nameof(FontAliases.InterItalic));
+        fonts.AddFont("Inter-Medium.ttf", nameof(FontAliases.InterMedium));
+        fonts.AddFont("Inter-MediumItalic.ttf", nameof(FontAliases.InterMediumItalic));
+        fonts.AddFont("Inter-SemiBold.ttf", nameof(FontAliases.InterSemiBold));
+        fonts.AddFont("Inter-SemiBoldItalic.ttf", nameof(FontAliases.InterSemiBoldItalic));
+        fonts.AddFont("Inter-Bold.ttf", nameof(FontAliases.InterBold));
+        fonts.AddFont("Inter-BoldItalic.ttf", nameof(FontAliases.InterBoldItalic));
         return fonts;
     }
 }
